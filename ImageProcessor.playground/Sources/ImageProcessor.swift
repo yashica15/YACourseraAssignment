@@ -4,9 +4,7 @@ import UIKit
 let filterFormula: FilterFormula = FilterFormula()
 
 public enum FilterType : String {
-    case redColor = "redColorFilter"
-    case greenColor = "greenColorFilter"
-    case blueColor = "blueColorFilter"
+    case intensifyColor = "intensifyColorFilter"
     case invertColor = "invertColorFilter"
     case colorSwap = "colorSwapFilter"
     case transperency = "transperencyFilter"
@@ -17,12 +15,8 @@ public enum FilterType : String {
     
     var filter : Filter {
         switch self {
-        case .redColor:
-            return filterFormula.redColorFilter
-        case .greenColor:
-            return filterFormula.greenColorFilter
-        case .blueColor:
-            return filterFormula.blueColorFilter
+        case .intensifyColor:
+            return filterFormula.intensifyColorFilter
         case .invertColor:
             return filterFormula.invertColorFilter
         case .colorSwap:
@@ -43,13 +37,15 @@ public enum FilterType : String {
 
 public class ImageProcessor {
     
-    public var filterList: [Filter] = []
-
+    private var filterList: [Filter] = []
+    
     public init() {
-
+        
     }
-
-    public func addFilter(filter: FilterType) {
+    
+    public func addFilter(filter: FilterType, filterOption : FilterOption? = FilterOption.none, filterIntensity : FilterIntensity? = FilterIntensity.defaultIntensity) {
+        filter.filter.intensity = filterIntensity
+        filter.filter.option = filterOption
         filterList.append(filter.filter)
     }
     

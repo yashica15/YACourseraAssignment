@@ -10,16 +10,14 @@ var imageProcessor: ImageProcessor = ImageProcessor()
 
 // Adding 5 filters
 // Comment uncomment for other filters
-imageProcessor.addFilter(filter: FilterType.redColor)
-//imageProcessor.addFilter(filter: FilterType.greenColor)
-//imageProcessor.addFilter(filter: FilterType.blueColor)
-//imageProcessor.addFilter(filter: FilterType.invertColor)
-imageProcessor.addFilter(filter: FilterType.colorSwap)
-//imageProcessor.addFilter(filter: FilterType.removeColor)
-imageProcessor.addFilter(filter: FilterType.transperency)
-//imageProcessor.addFilter(filter: FilterType.contrast)
-imageProcessor.addFilter(filter: FilterType.brightness)
-imageProcessor.addFilter(filter: FilterType.monochromeColor)
+imageProcessor.addFilter(filter: FilterType.intensifyColor, filterOption: FilterOption.colorRed, filterIntensity: FilterIntensity.highIntensity)
+imageProcessor.addFilter(filter: FilterType.invertColor, filterIntensity: FilterIntensity.defaultIntensity)
+imageProcessor.addFilter(filter: FilterType.colorSwap, filterOption: FilterOption.colorBlue, filterIntensity: FilterIntensity.lowIntensity)
+imageProcessor.addFilter(filter: FilterType.removeColor, filterOption: FilterOption.colorBlue)
+//imageProcessor.addFilter(filter: FilterType.transperency, filterIntensity: FilterIntensity.lowIntensity)
+//imageProcessor.addFilter(filter: FilterType.contrast, filterOption: FilterOption.modifier)
+//imageProcessor.addFilter(filter: FilterType.brightness, filterIntensity: FilterIntensity.highIntensity)
+imageProcessor.addFilter(filter: FilterType.monochromeColor, filterIntensity: FilterIntensity.defaultIntensity)
 
 // Processing the image
 imageProcessor.processImage(image: image)
