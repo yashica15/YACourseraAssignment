@@ -48,13 +48,13 @@ public class FilterFormula {
         var pixel = pixel
         
         switch option {
-        case .colorRed:
+        case .colorRed?:
             pixel.red = Clamp(number: 255 * intensityValue)
             break
-        case .colorGreen:
+        case .colorGreen?:
             pixel.green = Clamp(number: 255 * intensityValue)
             break
-        case .colorBlue:
+        case .colorBlue?:
             pixel.blue = Clamp(number: 255 * intensityValue)
             break
         default:
