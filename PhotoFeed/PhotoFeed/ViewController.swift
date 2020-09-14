@@ -191,7 +191,7 @@ extension ViewController: UITextFieldDelegate {
     }
     
     func addBackgrounTouchForEndEditing() {
-        self.tapGesture.addTarget(self, action: Selector(("removeTextFieldResponder")))
+        self.tapGesture.addTarget(self, action: #selector(self.removeTextFieldResponder))
         self.tapGesture.cancelsTouchesInView = true
         self.view.addGestureRecognizer(self.tapGesture)
     }
